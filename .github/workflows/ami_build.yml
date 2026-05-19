@@ -8,7 +8,7 @@ on:
     paths:
       - "packer/**" # packer / 하위경로에 변화가 있을때 동작하게 한다.
 
-  workflows_dispatch # 원할대 deploy 할수 있는 옵션 
+  workflows_dispatch: # 원할대 deploy 할수 있는 옵션 
 
 jobs:
   packer_build:
