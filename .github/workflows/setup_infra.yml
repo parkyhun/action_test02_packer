@@ -2,14 +2,13 @@
 
 name: 'Setup infra'
 
-on:
-  push: 
+on: 
+  push:
     branches:
-      - master              # master 브렌치의 push 이면서
+      - master
     paths:
-      - "terraform/**"      # terraform/ 하위 경로에 변화가 있을때 동작하게 한다
-    workflow_dispatch:      # 원할대 실행할수 있는 버튼을 github action에 만들어 지도록 한다
-
+      - "terraform/**" # terraform/ 하위 경로에 변화가 있을때 동작하게 한다.
+  workflow_dispatch: # 원할때 실행할수 있는 버튼을 github actions 에 만들어 지도록한다.
 
 jobs:
   terraform-run:
@@ -35,4 +34,3 @@ jobs:
           terraform apply --auto-approve
         # ./terraform 폴더안에서 위의 명령어가 실행이 된다.
         working-directory: ./terraform    
-      
