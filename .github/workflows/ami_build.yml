@@ -10,8 +10,8 @@ on:
   workflow_dispatch: # 원할때 deploy 할수 있는 옵션 
 
 jobs:
-  packer_build:
-    runs-on: ubuntu-latest
+  packer_build:                               # job 의 이름은 마음대로 작성가능
+    runs-on: ubuntu-latest                    # ubuntu 를 잠시 빌려서 작업 하겠다
     name: "Build AMI with packer & ansible"
     steps:
       - name: checkout Repository   # github 저장소로 부터 소스코드 가져오기
@@ -34,9 +34,9 @@ jobs:
         run: |
           packer init .
           packer build .
-        working-directory: ./packer
+        working-directory: ./packer       # ./pacerk/xxx.pkr.hcl 파일을 이용해서 init 과 build 작업을 수행한다
 
-      - name: Setup Terraform
+      - name: Setup Terraform               # terraform 설치
         uses: hashicorp/setup-terraform@v4
 
 
@@ -44,5 +44,5 @@ jobs:
         run: |
           terraform init
           terraform apply --auto-approve
-        working-directory: ./terraform
+        working-directory: ./terraform      # 의미는 이 파일 경로에서 위에 run 진행/ ./terraform 폴더안에서 위의 명령어가 실행이 된다
       
