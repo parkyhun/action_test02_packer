@@ -11,7 +11,7 @@ on:
     workflow_dispatch:      # 원할대 실행할수 있는 버튼을 github action에 만들어 지도록 한다
 
 
-jods:
+jobs:
   terraform-run:
     runs-on: ubuntu-latest
     steps:
